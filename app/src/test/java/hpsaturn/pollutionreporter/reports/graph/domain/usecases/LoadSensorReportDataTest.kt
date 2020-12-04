@@ -2,7 +2,7 @@ package hpsaturn.pollutionreporter.reports.graph.domain.usecases
 
 import hpsaturn.pollutionreporter.core.domain.entities.Success
 import hpsaturn.pollutionreporter.data.TestData
-import hpsaturn.pollutionreporter.reports.graph.domain.repositories.SensorDataRepository
+import hpsaturn.pollutionreporter.reports.graph.domain.repositories.SensorReportDataRepository
 import hpsaturn.pollutionreporter.util.InstantExecutorExtension
 import hpsaturn.pollutionreporter.util.MainCoroutineTestExtension
 import io.mockk.coEvery
@@ -20,12 +20,12 @@ import org.junit.jupiter.api.extension.RegisterExtension
 
 @ExperimentalCoroutinesApi
 @Extensions(ExtendWith(MockKExtension::class), ExtendWith(InstantExecutorExtension::class))
-internal class LoadSensorDataTest {
+internal class LoadSensorReportDataTest {
 
-    private lateinit var useCase: LoadSensorData
+    private lateinit var useCase: LoadSensorReportData
 
     @MockK
-    private lateinit var mockSensorDataRepository: SensorDataRepository
+    private lateinit var mockSensorReportDataRepository: SensorReportDataRepository
 
     @JvmField
     @RegisterExtension
@@ -33,20 +33,20 @@ internal class LoadSensorDataTest {
 
     @BeforeEach
     fun setUp() {
-        useCase = LoadSensorData(mockSensorDataRepository, coroutineRule.dispatcher)
+        useCase = LoadSensorReportData(mockSensorReportDataRepository, coroutineRule.dispatcher)
     }
 
     @Test
     fun `should call the repository to fetch sensor's data`() = coroutineRule.runBlockingTest {
         // arrange
         coEvery {
-            mockSensorDataRepository.getSensorData(TestData.sensorReportInformation1.deviceId)
+            mockSensorReportDataRepository.getSensorData(TestData.sensorReportInformation1.name)
         } returns Success(TestData.sensorDataPointList)
         // act
-        val result = useCase(TestData.sensorReportInformation1.deviceId)
+        val result = useCase(TestData.sensorReportInformation1.name)
         // assert
         Assertions.assertEquals(Success(TestData.sensorDataPointList), result)
-        coVerify { mockSensorDataRepository.getSensorData(TestData.sensorReportInformation1.deviceId) }
+        coVerify { mockSensorReportDataRepository.getSensorData(TestData.sensorReportInformation1.name) }
     }
 
 }
