@@ -1,6 +1,6 @@
 package hpsaturn.pollutionreporter.reports.open.domain.usecases
 
-import hpsaturn.pollutionreporter.di.DispatchersModule
+import hpsaturn.pollutionreporter.di.DispatchersModule.IoDispatcher
 import hpsaturn.pollutionreporter.reports.open.domain.repositories.OpenSensorReportsRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 class LoadOpenSensorReports @Inject constructor(
     private val openSensorReportsRepository: OpenSensorReportsRepository,
-    @DispatchersModule.IoDispatcher private val ioDispatcher: CoroutineDispatcher
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
     suspend operator fun invoke() =
         withContext(ioDispatcher) { openSensorReportsRepository.getPublicSensorReports() }
