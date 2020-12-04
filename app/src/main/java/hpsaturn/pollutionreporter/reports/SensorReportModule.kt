@@ -12,9 +12,9 @@ import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
 import hpsaturn.pollutionreporter.reports.open.data.repositories.OpenSensorReportsRepositoryImpl
 import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportService
 import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportServiceImp
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorDataPoint
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
 import hpsaturn.pollutionreporter.reports.open.domain.repositories.OpenSensorReportsRepository
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorDataPoint
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 
 @Module
 @InstallIn(ApplicationComponent::class)

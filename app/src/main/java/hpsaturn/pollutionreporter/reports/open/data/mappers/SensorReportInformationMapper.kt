@@ -2,7 +2,7 @@ package hpsaturn.pollutionreporter.reports.open.data.mappers
 
 import hpsaturn.pollutionreporter.core.data.mappers.Mapper
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 import javax.inject.Inject
 
 class SensorReportInformationMapper @Inject constructor() :

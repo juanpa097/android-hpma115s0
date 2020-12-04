@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import hpsaturn.pollutionreporter.core.domain.entities.InProgress
 import hpsaturn.pollutionreporter.core.domain.entities.Result
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
 import hpsaturn.pollutionreporter.reports.open.domain.usecases.LoadOpenSensorReports
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 
 class OpenSensorReportsViewModel @ViewModelInject constructor(
     private val loadOpenSensorReports: LoadOpenSensorReports

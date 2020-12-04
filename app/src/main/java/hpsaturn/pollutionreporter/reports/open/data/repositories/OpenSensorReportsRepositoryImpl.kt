@@ -6,8 +6,8 @@ import hpsaturn.pollutionreporter.core.domain.entities.Result
 import hpsaturn.pollutionreporter.core.domain.entities.Success
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
 import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportService
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
 import hpsaturn.pollutionreporter.reports.open.domain.repositories.OpenSensorReportsRepository
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 import javax.inject.Inject
 
 class OpenSensorReportsRepositoryImpl @Inject constructor(

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import hpsaturn.pollutionreporter.R
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 import kotlinx.android.synthetic.main.item_record.view.*
 import javax.inject.Inject
 

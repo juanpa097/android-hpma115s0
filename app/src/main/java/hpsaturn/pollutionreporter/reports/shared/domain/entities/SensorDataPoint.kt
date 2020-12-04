@@ -1,4 +1,4 @@
-package hpsaturn.pollutionreporter.reports.open.domain.entities
+package hpsaturn.pollutionreporter.reports.shared.domain.entities
 
 import java.util.*
 

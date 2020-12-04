@@ -14,7 +14,7 @@ import hpsaturn.pollutionreporter.R
 import hpsaturn.pollutionreporter.core.domain.entities.ErrorResult
 import hpsaturn.pollutionreporter.core.domain.entities.InProgress
 import hpsaturn.pollutionreporter.core.domain.entities.Success
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 import kotlinx.android.synthetic.main.fragment_sensor_report_information_list.*
 import javax.inject.Inject
 

@@ -3,7 +3,7 @@ package hpsaturn.pollutionreporter.reports.open.data.services
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.GenericTypeIndicator
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
-import hpsaturn.pollutionreporter.reports.open.domain.entities.TracksInfoNotFoundException
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.TracksInfoNotFoundException
 import hpsaturn.pollutionreporter.util.getSuspendValue
 import javax.inject.Inject
 

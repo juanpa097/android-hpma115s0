@@ -6,7 +6,7 @@ import hpsaturn.pollutionreporter.core.domain.entities.Success
 import hpsaturn.pollutionreporter.data.TestData
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
 import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportService
-import hpsaturn.pollutionreporter.reports.open.domain.entities.SensorReportInformation
+import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
