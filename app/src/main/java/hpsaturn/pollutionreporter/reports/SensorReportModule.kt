@@ -10,8 +10,8 @@ import hpsaturn.pollutionreporter.reports.open.data.mappers.SensorReportInformat
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksData
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
 import hpsaturn.pollutionreporter.reports.open.data.repositories.OpenSensorReportsRepositoryImpl
-import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportService
-import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportServiceImp
+import hpsaturn.pollutionreporter.reports.open.data.services.SensorReportsFirebaseService
+import hpsaturn.pollutionreporter.reports.open.data.services.SensorReportsService
 import hpsaturn.pollutionreporter.reports.open.domain.repositories.OpenSensorReportsRepository
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorDataPoint
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
@@ -36,7 +36,7 @@ abstract class SensorReportModule {
     ): OpenSensorReportsRepository
 
     @Binds
-    abstract fun bindPublicSensorReportServiceImpl(
-        publicSensorReportServiceImp: PublicSensorReportServiceImp
-    ): PublicSensorReportService
+    abstract fun bindPublicSensorReportFirebaseService(
+        publicSensorReportFirebaseService: SensorReportsFirebaseService
+    ): SensorReportsService
 }

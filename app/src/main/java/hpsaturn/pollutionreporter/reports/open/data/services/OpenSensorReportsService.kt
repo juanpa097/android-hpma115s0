@@ -7,13 +7,13 @@ import hpsaturn.pollutionreporter.reports.shared.domain.entities.TracksInfoNotFo
 import hpsaturn.pollutionreporter.util.getSuspendValue
 import javax.inject.Inject
 
-interface PublicSensorReportService {
+interface SensorReportsService {
     suspend fun getTracksInfo(): List<TracksInfo>
 }
 
-class PublicSensorReportServiceImp @Inject constructor(
+class SensorReportsFirebaseService @Inject constructor(
     private val database: DatabaseReference
-) : PublicSensorReportService {
+) : SensorReportsService {
 
     override suspend fun getTracksInfo(): List<TracksInfo> {
         val result = database

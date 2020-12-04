@@ -5,7 +5,7 @@ import hpsaturn.pollutionreporter.core.domain.entities.ErrorResult
 import hpsaturn.pollutionreporter.core.domain.entities.Success
 import hpsaturn.pollutionreporter.data.TestData
 import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
-import hpsaturn.pollutionreporter.reports.open.data.services.PublicSensorReportService
+import hpsaturn.pollutionreporter.reports.open.data.services.SensorReportsService
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -26,25 +26,25 @@ internal class OpenSensorReportsRepositoryImplTest {
     private lateinit var repository: OpenSensorReportsRepositoryImpl
 
     @MockK
-    private lateinit var mockSensorReportService: PublicSensorReportService
+    private lateinit var mockSensorReportsService: SensorReportsService
 
     @MockK
     private lateinit var mockMapper: Mapper<TracksInfo, SensorReportInformation>
 
     @BeforeEach
     fun setUp() {
-        repository = OpenSensorReportsRepositoryImpl(mockSensorReportService, mockMapper)
+        repository = OpenSensorReportsRepositoryImpl(mockSensorReportsService, mockMapper)
     }
 
     @Test
     fun `should return remote data when the call to remote data source is ok`() = runBlockingTest {
         // arrange
         every { mockMapper(any()) } returnsMany TestData.sensorReportInformationList
-        coEvery { mockSensorReportService.getTracksInfo() } returns TestData.trackInformationList
+        coEvery { mockSensorReportsService.getTracksInfo() } returns TestData.trackInformationList
         // act
         val result = repository.getPublicSensorReports()
         // assert
-        coVerify { mockSensorReportService.getTracksInfo() }
+        coVerify { mockSensorReportsService.getTracksInfo() }
         verify { mockMapper(TestData.trackInformation1) }
         assertEquals(Success(TestData.sensorReportInformationList), result)
     }
@@ -53,7 +53,7 @@ internal class OpenSensorReportsRepositoryImplTest {
     fun `should wrap the in ErrorResponse in case service throws an error`() = runBlockingTest {
         // arrange
         val tException = Exception()
-        coEvery { mockSensorReportService.getTracksInfo() } throws tException
+        coEvery { mockSensorReportsService.getTracksInfo() } throws tException
         // act
         val result = repository.getPublicSensorReports()
         // assert
