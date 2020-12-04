@@ -1,4 +1,4 @@
-package hpsaturn.pollutionreporter.reports.open.data.models
+package hpsaturn.pollutionreporter.reports.shared.data.models
 
 /**
  * Information of single data point of a report.

@@ -1,7 +1,7 @@
 package hpsaturn.pollutionreporter.reports.open.data.mappers
 
 import hpsaturn.pollutionreporter.core.data.mappers.Mapper
-import hpsaturn.pollutionreporter.reports.open.data.models.TracksData
+import hpsaturn.pollutionreporter.reports.shared.data.models.TracksData
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorDataPoint
 import hpsaturn.pollutionreporter.util.toUnixTimeStamp
 import javax.inject.Inject

@@ -1,5 +1,7 @@
 package hpsaturn.pollutionreporter.reports.open.data.models
 
+import hpsaturn.pollutionreporter.reports.shared.data.models.TracksData
+
 /**
  * Basic information of a sensor report.
  * @property deviceId ID of the device that gathered the data.
