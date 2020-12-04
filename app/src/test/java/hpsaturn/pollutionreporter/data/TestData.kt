@@ -77,6 +77,8 @@ object TestData {
         timestamp
     )
 
+    val sensorDataPointList = listOf(sensorDataPoint1, sensorDataPoint2, sensorDataPoint3)
+
     val trackData1 = TracksData(
         "track1",
         1469.2,
@@ -87,8 +89,28 @@ object TestData {
         longitude1,
         unixTimeStamp
     )
+    val trackData2 = TracksData(
+        "track2",
+        1469.2,
+        1.9,
+        2.89,
+        5.1,
+        latitude1,
+        longitude1,
+        unixTimeStamp
+    )
+    val trackData3 = TracksData(
+        "track1",
+        1469.2,
+        1.9,
+        2.89,
+        5.1,
+        latitude1,
+        longitude1,
+        unixTimeStamp
+    )
 
-    val sensorDataPointList = listOf(sensorDataPoint1, sensorDataPoint2, sensorDataPoint3)
+    val trackDataList = listOf(sensorDataPoint1, sensorDataPoint2, sensorDataPoint3)
 
     val trackInformation1 = TracksInfo(
         localDate1,
