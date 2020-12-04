@@ -4,7 +4,7 @@ import hpsaturn.pollutionreporter.reports.open.data.models.TracksInfo
 import hpsaturn.pollutionreporter.reports.shared.data.models.TracksData
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorDataPoint
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorReportInformation
-import hpsaturn.pollutionreporter.util.toUnixTimeStamp
+import hpsaturn.pollutionreporter.util.fromUnixToDate
 
 object TestData {
 
@@ -14,7 +14,7 @@ object TestData {
     private const val localDate1 = "Oct, Thu 03"
 
     private const val unixTimeStamp = 1605631331L
-    private val timestamp = unixTimeStamp.toUnixTimeStamp()
+    private val timestamp = unixTimeStamp.fromUnixToDate()
 
     val sensorReportInformation1 = SensorReportInformation(
         "device1",

@@ -10,15 +10,15 @@ import java.util.*
  * @property spd value of SPD.
  * @property latitude Latitude of the data point.
  * @property longitude Longitude of the data point.
- * @property timestamp Timestamp of the data point.
+ * @property datetime Timestamp of the data point.
  */
 
-class SensorDataPoint(
+open class SensorDataPoint(
     val pointId: String,
-    val p10: Double,
-    val p25: Double,
-    val spd: Double,
-    val latitude: Double,
-    val longitude: Double,
-    val timestamp: Date
+    open val p10: Double,
+    open val p25: Double,
+    open val spd: Double,
+    open val latitude: Double,
+    open val longitude: Double,
+    val datetime: Date
 )

@@ -1,7 +1,7 @@
 package hpsaturn.pollutionreporter.reports.open.data.mappers
 
 import hpsaturn.pollutionreporter.data.TestData
-import hpsaturn.pollutionreporter.util.toUnixTimeStamp
+import hpsaturn.pollutionreporter.util.fromUnixToDate
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -28,6 +28,6 @@ internal class SensorDataPointMapperTest {
         assertEquals(TestData.trackData1.spd, response.spd)
         assertEquals(TestData.trackData1.latitude, response.latitude)
         assertEquals(TestData.trackData1.longitude, response.longitude)
-        assertEquals(TestData.trackData1.timestamp.toUnixTimeStamp(), response.timestamp)
+        assertEquals(TestData.trackData1.timestamp.fromUnixToDate(), response.datetime)
     }
 }

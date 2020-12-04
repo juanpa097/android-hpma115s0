@@ -49,4 +49,4 @@ class ImpValueEventListener(
 /**
  * Creates a [Date] from UNIX timestamp.
  */
-fun Long.toUnixTimeStamp() = Date(this * 1000)
+fun Long.fromUnixToDate() = Date(this * 1000)

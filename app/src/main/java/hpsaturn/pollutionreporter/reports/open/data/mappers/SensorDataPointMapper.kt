@@ -3,7 +3,7 @@ package hpsaturn.pollutionreporter.reports.open.data.mappers
 import hpsaturn.pollutionreporter.core.data.mappers.Mapper
 import hpsaturn.pollutionreporter.reports.shared.data.models.TracksData
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorDataPoint
-import hpsaturn.pollutionreporter.util.toUnixTimeStamp
+import hpsaturn.pollutionreporter.util.fromUnixToDate
 import javax.inject.Inject
 
 class SensorDataPointMapper @Inject constructor() : Mapper<TracksData, SensorDataPoint> {
@@ -14,6 +14,6 @@ class SensorDataPointMapper @Inject constructor() : Mapper<TracksData, SensorDat
         input.spd,
         input.latitude,
         input.longitude,
-        input.timestamp.toUnixTimeStamp()
+        input.timestamp.fromUnixToDate()
     )
 }
