@@ -68,12 +68,12 @@ class OpenSensorReportsInformationListFragment : Fragment() {
     }
 
     private fun renderProgress() {
-        openSensorReportsLoadingIndicator.visibility = View.VISIBLE
+        loadingIndicator.visibility = View.VISIBLE
     }
 
     private fun setAllViewsInvisible() {
         recordsListRecyclerView.visibility = View.INVISIBLE
-        openSensorReportsLoadingIndicator.visibility = View.INVISIBLE
+        loadingIndicator.visibility = View.INVISIBLE
         errorMessage.visibility = View.INVISIBLE
     }
 

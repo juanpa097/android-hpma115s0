@@ -16,7 +16,7 @@
         tools:listitem="@layout/item_record" />
 
     <ProgressBar
-        android:id="@+id/openSensorReportsLoadingIndicator"
+        android:id="@+id/loadingIndicator"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
