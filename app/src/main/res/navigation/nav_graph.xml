@@ -29,5 +29,20 @@
         android:id="@+id/sensorReportInformationListFragment"
         android:name="hpsaturn.pollutionreporter.reports.open.presentation.OpenSensorReportsInformationListFragment"
         android:label="fragment_sensor_report_information_list"
-        tools:layout="@layout/fragment_sensor_report_information_list" />
+        tools:layout="@layout/fragment_sensor_report_information_list">
+        <action
+            android:id="@+id/action_graph"
+            app:destination="@id/sensorReportDataGraphFragment"
+            app:enterAnim="@anim/enter"
+            app:exitAnim="@anim/exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/sensorReportDataGraphFragment"
+        android:name="hpsaturn.pollutionreporter.reports.graph.presentation.SensorReportDataGraphFragment"
+        android:label="fragment_sensor_report_data_graph"
+        tools:layout="@layout/fragment_sensor_report_data_graph">
+        <argument
+            android:name="reportId"
+            app:argType="string" />
+    </fragment>
 </navigation>

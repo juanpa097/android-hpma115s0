@@ -3,6 +3,7 @@ package hpsaturn.pollutionreporter.reports.open.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -18,8 +19,15 @@ class SensorReportAdapter @Inject constructor() :
             LayoutInflater.from(parent.context).inflate(R.layout.item_record, parent, false)
         )
 
-    override fun onBindViewHolder(holder: SensorReportViewHolder, position: Int) =
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: SensorReportViewHolder, position: Int) {
+        holder.run {
+            bind(getItem(position))
+            val action =
+                OpenSensorReportsInformationListFragmentDirections.actionGraph(getItem(position).name)
+            itemView.setOnClickListener(Navigation.createNavigateOnClickListener(action))
+        }
+    }
+
 }
 
 class SensorReportViewHolder(itemView: View) :
