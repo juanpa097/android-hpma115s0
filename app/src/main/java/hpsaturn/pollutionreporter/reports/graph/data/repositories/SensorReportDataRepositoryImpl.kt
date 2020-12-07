@@ -11,7 +11,7 @@ import javax.inject.Inject
 class SensorReportDataRepositoryImpl @Inject constructor(
     private val sensorReportDataService: SensorReportDataService
 ) : SensorReportDataRepository {
-    override suspend fun getSensorData(recordId: String): Result<List<SensorDataPoint>> =
+    override suspend fun getSensorReportData(recordId: String): Result<List<SensorDataPoint>> =
         runCatching {
             Success(sensorReportDataService.getSensorData(recordId))
         }.getOrElse {

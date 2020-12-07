@@ -48,7 +48,6 @@ object TestData {
     )
 
     val sensorDataPoint1 = SensorDataPoint(
-        "track1",
         1.9,
         2.89,
         5.1,
@@ -58,7 +57,6 @@ object TestData {
     )
 
     val sensorDataPoint2 = SensorDataPoint(
-        "track2",
         1.9,
         2.89,
         5.1,
@@ -68,7 +66,6 @@ object TestData {
     )
 
     val sensorDataPoint3 = SensorDataPoint(
-        "track3",
         1.9,
         2.89,
         5.1,
@@ -80,7 +77,6 @@ object TestData {
     val sensorDataPointList = listOf(sensorDataPoint1, sensorDataPoint2, sensorDataPoint3)
 
     val trackData1 = TracksData(
-        "track1",
         1469.2,
         1.9,
         2.89,
@@ -90,7 +86,6 @@ object TestData {
         unixTimeStamp
     )
     val trackData2 = TracksData(
-        "track2",
         1469.2,
         1.9,
         2.89,
@@ -100,7 +95,6 @@ object TestData {
         unixTimeStamp
     )
     val trackData3 = TracksData(
-        "track1",
         1469.2,
         1.9,
         2.89,

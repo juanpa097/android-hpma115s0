@@ -1,4 +1,4 @@
-package hpsaturn.pollutionreporter.reports.open.data.mappers
+package hpsaturn.pollutionreporter.reports.shared.data.mappers
 
 import hpsaturn.pollutionreporter.core.data.mappers.Mapper
 import hpsaturn.pollutionreporter.reports.shared.data.models.TracksData
@@ -8,12 +8,11 @@ import javax.inject.Inject
 
 class SensorDataPointMapper @Inject constructor() : Mapper<TracksData, SensorDataPoint> {
     override fun invoke(input: TracksData): SensorDataPoint = SensorDataPoint(
-        input.id,
-        input.p10,
-        input.p25,
+        input.P10,
+        input.P25,
         input.spd,
-        input.latitude,
-        input.longitude,
+        input.lat,
+        input.lon,
         input.timestamp.fromUnixToDate()
     )
 }

@@ -61,9 +61,10 @@ fun <T> LiveData<T>.observeForTesting(block: () -> Unit) {
 
 /**
  * Gets the value of a [LiveData] safely.
+ * @param nthEmittedValue is the Nth emitted value.
  */
 @Throws(InterruptedException::class)
-fun <T> LiveData<T>.getValueForTest(): T? {
+fun <T> LiveData<T>.getValueForTest(nthEmittedValue: Int = 0): T? {
     var data: T? = null
     val latch = CountDownLatch(1)
     val observer = object : Observer<T> {
@@ -73,7 +74,7 @@ fun <T> LiveData<T>.getValueForTest(): T? {
             this@getValueForTest.removeObserver(this)
         }
     }
-    this.observeForever(observer)
+    for (i in 0..nthEmittedValue) this.observeForever(observer)
     latch.await(2, TimeUnit.SECONDS)
 
     return data

@@ -11,14 +11,12 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.junit.jupiter.api.extension.Extensions
 
-@ExperimentalCoroutinesApi
 @Extensions(ExtendWith(MockKExtension::class), ExtendWith(InstantExecutorExtension::class))
 internal class OpenSensorReportsViewModelTest {
 
@@ -35,20 +33,20 @@ internal class OpenSensorReportsViewModelTest {
     }
 
     @Test
-    fun `should emit Success with the loaded public sensor report data`() {
+    fun `should emit Success with the loaded public sensor report data the after InProgress`() {
         // arrange
-        coEvery { mockLoadOpenSensorReports.invoke() } returns Success(TestData.sensorReportInformationList)
+        coEvery { mockLoadOpenSensorReports() } returns Success(TestData.sensorReportInformationList)
         // act
-        val result = openSensorReportsViewModel.publicReports.getValueForTest()
+        val result = openSensorReportsViewModel.publicReports.getValueForTest(1)
         // assert
         assertEquals(Success(TestData.sensorReportInformationList), result)
         coVerify { mockLoadOpenSensorReports() }
     }
 
     @Test
-    fun `should emit InProgress if LoadPublicSensorReports returns InProgress`() {
+    fun `should emit InProgress before `() {
         // arrange
-        coEvery { mockLoadOpenSensorReports.invoke() } returns InProgress
+        coEvery { mockLoadOpenSensorReports() } returns Success(TestData.sensorReportInformationList)
         // act
         val result = openSensorReportsViewModel.publicReports.getValueForTest()
         // assert
@@ -57,11 +55,11 @@ internal class OpenSensorReportsViewModelTest {
     }
 
     @Test
-    fun `should emit ErrorResult if LoadPublicSensorReports returns ErrorResult`() {
+    fun `should emit ErrorResult if LoadPublicSensorReports returns ErrorResult after InProgress`() {
         // arrange
-        coEvery { mockLoadOpenSensorReports.invoke() } returns ErrorResult(tException)
+        coEvery { mockLoadOpenSensorReports() } returns ErrorResult(tException)
         // act
-        val result = openSensorReportsViewModel.publicReports.getValueForTest()
+        val result = openSensorReportsViewModel.publicReports.getValueForTest(1)
         // assert
         assertEquals(ErrorResult(tException), result)
         coVerify { mockLoadOpenSensorReports() }

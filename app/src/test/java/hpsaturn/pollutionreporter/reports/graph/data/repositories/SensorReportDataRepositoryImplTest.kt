@@ -35,7 +35,7 @@ internal class SensorReportDataRepositoryImplTest {
         // arrange
         coEvery { mockSensorReportDataService.getSensorData(TestData.sensorReportInformation1.name) } returns TestData.trackDataList
         // act
-        val result = repository.getSensorData(TestData.sensorReportInformation1.name)
+        val result = repository.getSensorReportData(TestData.sensorReportInformation1.name)
         // assert
         coVerify { mockSensorReportDataService.getSensorData(TestData.sensorReportInformation1.name) }
         assertEquals(Success(TestData.trackDataList), result)
@@ -47,7 +47,7 @@ internal class SensorReportDataRepositoryImplTest {
         val tException = Exception()
         coEvery { mockSensorReportDataService.getSensorData(TestData.sensorReportInformation1.name) } throws tException
         // act
-        val result = repository.getSensorData(TestData.sensorReportInformation1.name)
+        val result = repository.getSensorReportData(TestData.sensorReportInformation1.name)
         // assert
         coVerify { mockSensorReportDataService.getSensorData(TestData.sensorReportInformation1.name) }
         assertEquals(ErrorResult(tException), result)

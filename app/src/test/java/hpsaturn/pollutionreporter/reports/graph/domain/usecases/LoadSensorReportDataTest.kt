@@ -40,13 +40,13 @@ internal class LoadSensorReportDataTest {
     fun `should call the repository to fetch sensor's data`() = coroutineRule.runBlockingTest {
         // arrange
         coEvery {
-            mockSensorReportDataRepository.getSensorData(TestData.sensorReportInformation1.name)
+            mockSensorReportDataRepository.getSensorReportData(TestData.sensorReportInformation1.name)
         } returns Success(TestData.sensorDataPointList)
         // act
         val result = useCase(TestData.sensorReportInformation1.name)
         // assert
         Assertions.assertEquals(Success(TestData.sensorDataPointList), result)
-        coVerify { mockSensorReportDataRepository.getSensorData(TestData.sensorReportInformation1.name) }
+        coVerify { mockSensorReportDataRepository.getSensorReportData(TestData.sensorReportInformation1.name) }
     }
 
 }

@@ -4,5 +4,5 @@ import hpsaturn.pollutionreporter.core.domain.entities.Result
 import hpsaturn.pollutionreporter.reports.shared.domain.entities.SensorDataPoint
 
 interface SensorReportDataRepository {
-    suspend fun getSensorData(recordId: String): Result<List<SensorDataPoint>>
+    suspend fun getSensorReportData(recordId: String): Result<List<SensorDataPoint>>
 }

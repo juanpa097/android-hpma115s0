@@ -14,5 +14,5 @@ class LoadSensorReportData @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
     suspend operator fun invoke(recordId: String) =
-        withContext(ioDispatcher) { sensorReportDataRepository.getSensorData(recordId) }
+        withContext(ioDispatcher) { sensorReportDataRepository.getSensorReportData(recordId) }
 }
